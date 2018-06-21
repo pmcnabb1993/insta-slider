@@ -35,6 +35,18 @@ class App extends Component {
         <div>
           {console.log(this.state.photos)}
         </div>
+        <div> 
+          {this.state.photos.map((photo,key) => {
+            return (
+              <div key={photo.id}>
+                <img src={photo.images.standard_resolution.url} alt={photo.caption}/>
+                  <div style={{width:'600px', margin: '24px auto', fontStyle: 'italic'}}>
+                      {photo.caption !== null ? photo.caption.text : ''}
+                  </div>  
+              </div>
+            )
+          })}
+        </div>
       </div>
     );
   }
